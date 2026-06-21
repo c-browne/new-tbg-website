@@ -306,20 +306,18 @@
   position: relative;
   overflow: hidden;
 
-  min-height: 360px;
-  aspect-ratio: 4 / 3;
-
-  padding: 18px;
+  height: 300px;
 
   display: flex;
   align-items: flex-end;
 
-  background-color: var(--midnight);
+  padding: 0;
+
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 
-  border: 1px solid rgba(183,144,75,.35);
+  border: none;
 }
 
 .spotlight:before {
@@ -329,21 +327,16 @@
 
   background: linear-gradient(
     180deg,
-    rgba(7,17,31,.05) 0%,
-    rgba(7,17,31,.42) 50%,
-    rgba(7,17,31,.88) 100%
+    rgba(7,17,31,0) 0%,
+    rgba(7,17,31,.18) 55%,
+    rgba(7,17,31,.78) 100%
   );
 
   z-index: 1;
 }
 
 .spotlight:after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(183,144,75,.35);
-  z-index: 2;
-  pointer-events: none;
+  display: none;
 }
 
 .spotlight.guyana {
@@ -373,8 +366,12 @@
 .spotlight-content {
   position: relative;
   z-index: 3;
-  color: var(--white);
+
   width: 100%;
+
+  padding: 20px;
+
+  color: var(--white);
 }
 
 .tag {
@@ -393,19 +390,13 @@
 }
 
 .spotlight h3 {
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 10px rgba(0,0,0,.75);
+  font-size: 24px;
+  margin-bottom: 8px;
 }
 
 .spotlight p {
-  color: rgba(255,255,255,.84);
-  margin: 0 0 18px;
-  font-size: 15px;
-  line-height: 1.45;
-  text-shadow: 0 2px 8px rgba(0,0,0,.55);
+  font-size: 14px;
+  margin-bottom: 14px;
 }
     .founder-visual {
       background:

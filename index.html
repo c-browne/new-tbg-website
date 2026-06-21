@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Buckler Group | V7.4 Institutional Preview</title>
+  <title>The Buckler Group | Office of the Founder Preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -359,7 +359,7 @@
 }
 
 .spotlight.grenada {
-  background-image: url("assets-images/assets/images/grenada.webp");
+  background-image: url("assets-images/grenada.webp");
 }
 
 .spotlight.antigua {
@@ -1059,6 +1059,117 @@
       .cta-band { flex-direction: column; align-items: flex-start; }
       .program-panel { padding: 32px; }
     }
+  
+    /* ===== Office of the Founder | Institutional Section ===== */
+    .office-founder {
+      background: var(--bone);
+      padding: 96px 5vw;
+      border-top: 1px solid rgba(7,17,31,.08);
+      border-bottom: 1px solid rgba(7,17,31,.08);
+    }
+
+    .office-founder-inner {
+      max-width: 1420px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 54px;
+      align-items: stretch;
+    }
+
+    .office-founder-image {
+      min-height: 600px;
+      background:
+        linear-gradient(180deg, rgba(7,17,31,.03), rgba(7,17,31,.72)),
+        url("assets-images/assets/Christopher Browne _ Indoor-80.webp");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(7,17,31,.12);
+      position: relative;
+    }
+
+    .office-founder-image:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(183,144,75,.28);
+      pointer-events: none;
+    }
+
+    .office-founder-copy {
+      background: var(--white);
+      border: 1px solid rgba(7,17,31,.12);
+      padding: 58px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .office-founder-copy h2 {
+      color: var(--navy);
+      font-size: clamp(40px, 4.8vw, 68px);
+      line-height: .98;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    .office-founder-copy p {
+      color: var(--slate);
+      font-size: 18px;
+      line-height: 1.66;
+      max-width: 850px;
+      margin: 0 0 20px;
+    }
+
+    .office-founder-copy blockquote {
+      margin: 34px 0;
+      padding: 22px 0 22px 26px;
+      border-left: 4px solid var(--gold);
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(28px, 3vw, 42px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+    }
+
+    .office-founder-signature {
+      margin-top: 18px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(7,17,31,.10);
+    }
+
+    .office-founder-signature strong {
+      display: block;
+      color: var(--navy);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .office-founder-signature span {
+      display: block;
+      color: var(--slate);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 900px) {
+      .office-founder-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .office-founder-image {
+        min-height: 380px;
+      }
+
+      .office-founder-copy {
+        padding: 36px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1071,6 +1182,7 @@
       <a href="#sessions">Strategic Sessions</a>
       <a href="#exodus">EXODUS™</a>
       <a href="#insights">Insights</a>
+      <a href="#founder">Founder</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -1222,6 +1334,36 @@
       </div>
     </section>
 
+    
+    <!-- ===== Office of the Founder Section ===== -->
+    <section class="office-founder" id="founder">
+      <div class="office-founder-inner">
+        <div class="office-founder-image" role="img" aria-label="Christopher A. Browne, Founder of The Buckler Group"></div>
+
+        <div class="office-founder-copy">
+          <div class="eyebrow">Office of the Founder</div>
+          <h2>Architect of Order</h2>
+
+          <p>The Buckler Group was established on a simple premise: enduring economic value is created when institutions, capital, and place are brought into alignment.</p>
+
+          <p>The Caribbean is entering a period of structural transformation characterized by increasing tourism demand, infrastructure investment, diaspora engagement, and evolving capital flows.</p>
+
+          <p>We believe these trends will create a new generation of opportunities for jurisdictions, institutions, and investors capable of aligning long-term vision with disciplined execution.</p>
+
+          <blockquote>
+            Order is the foundation upon which opportunity becomes durable value.
+          </blockquote>
+
+          <p>The firm’s work is guided by a disciplined approach to market intelligence, stakeholder alignment, development readiness, and long-term regional advancement.</p>
+
+          <div class="office-founder-signature">
+            <strong>Christopher A. Browne</strong>
+            <span>Founder & Chief Executive Officer</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="insights" class="dark-section">
       <div class="section-head">
         <div class="eyebrow">Insights</div>
@@ -1235,19 +1377,7 @@
         <article class="insight"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Urban development"><div class="insight-body"><div class="tag">Development</div><h3>Entitlements and Development Readiness</h3><p>Approvals, incentives, land-use alignment, and institutional coordination before execution.</p></div></article>
       </div>
     </section>
-
-    
-    <section class="founder-compact">
-      <div>
-        <div class="eyebrow">Architect of Order</div>
-        <h2>Christopher A. Browne</h2>
-      </div>
-      <div>
-        <p>Christopher A. Browne founded The Buckler Group to advance strategic alignment across hospitality, development, capital, and Caribbean opportunity. His work focuses on organizing complex environments into durable pathways for growth and execution.</p>
-      </div>
-    </section>
-
-    <section class="pricing-section" id="waitlist">
+<section class="pricing-section" id="waitlist">
       <div class="section-head">
         <div class="eyebrow">EXODUS™</div>
         <h2>EXODUS™</h2>

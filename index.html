@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Buckler Group | Strategic Advisory, Development & Capital</title>
+  <title>The Buckler Group | Caribbean Renaissance™ Framework</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -306,18 +306,20 @@
   position: relative;
   overflow: hidden;
 
-  height: 300px;
+  min-height: 360px;
+  aspect-ratio: 4 / 3;
+
+  padding: 18px;
 
   display: flex;
   align-items: flex-end;
 
-  padding: 0;
-
+  background-color: var(--midnight);
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important;
 
-  border: none;
+  border: 1px solid rgba(183,144,75,.35);
 }
 
 .spotlight:before {
@@ -327,16 +329,21 @@
 
   background: linear-gradient(
     180deg,
-    rgba(7,17,31,0) 0%,
-    rgba(7,17,31,.18) 55%,
-    rgba(7,17,31,.78) 100%
+    rgba(7,17,31,.05) 0%,
+    rgba(7,17,31,.42) 50%,
+    rgba(7,17,31,.88) 100%
   );
 
   z-index: 1;
 }
 
 .spotlight:after {
-  display: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(183,144,75,.35);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .spotlight.guyana {
@@ -352,7 +359,7 @@
 }
 
 .spotlight.grenada {
-  background-image: url("assets-images/assets/images/grenada.webp");
+  background-image: url("assets-images/grenada.webp");
 }
 
 .spotlight.antigua {
@@ -366,12 +373,8 @@
 .spotlight-content {
   position: relative;
   z-index: 3;
-
-  width: 100%;
-
-  padding: 20px;
-
   color: var(--white);
+  width: 100%;
 }
 
 .tag {
@@ -390,13 +393,19 @@
 }
 
 .spotlight h3 {
-  font-size: 24px;
-  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 10px rgba(0,0,0,.75);
 }
 
 .spotlight p {
-  font-size: 14px;
-  margin-bottom: 14px;
+  color: rgba(255,255,255,.84);
+  margin: 0 0 18px;
+  font-size: 15px;
+  line-height: 1.45;
+  text-shadow: 0 2px 8px rgba(0,0,0,.55);
 }
     .founder-visual {
       background:
@@ -1161,12 +1170,336 @@
       }
     }
 
-  </style>
+  
+/* =========================================================
+   SURGICAL REFINEMENTS — TBG CURRENT SITE
+   ========================================================= */
+
+.hero-subline {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 24px;
+}
+
+.institutional-premise {
+  background: var(--white);
+  text-align: center;
+  padding: 112px 8vw;
+  border-bottom: 1px solid var(--soft-line);
+}
+
+.institutional-premise .premise-label,
+.strategic-calendar .calendar-label {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+.institutional-premise h2 {
+  max-width: 980px;
+  margin: 0 auto;
+  color: var(--navy);
+  font-size: clamp(40px, 5.4vw, 82px);
+  line-height: .94;
+  letter-spacing: -.045em;
+}
+
+.declaration-hero-band .declaration-title span {
+  display: block;
+}
+
+.declaration-hero-band .declaration-copy,
+.declaration-hero-band .declaration-button {
+  display: none !important;
+}
+
+.regional-demand .section-head h2 {
+  color: var(--white);
+}
+
+.demand-stat {
+  border: none !important;
+}
+
+.demand-stat p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.strategic-calendar {
+  margin-top: 44px;
+  background: rgba(255,255,255,.045);
+  border: 1px solid rgba(183,144,75,.35);
+}
+
+.calendar-row {
+  display: grid;
+  grid-template-columns: 1.2fr .7fr 1.1fr;
+  gap: 24px;
+  padding: 22px 26px;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+  align-items: center;
+}
+
+.calendar-row:last-child {
+  border-bottom: none;
+}
+
+.calendar-market {
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.calendar-date {
+  color: var(--gold);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: 700;
+}
+
+.calendar-themes {
+  color: rgba(255,255,255,.72);
+  font-size: 14px;
+}
+
+.founder-subtitle {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.office-founder {
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
+}
+
+.office-founder-copy h2 {
+  font-size: clamp(32px, 3.8vw, 54px) !important;
+}
+
+.office-founder-copy p:nth-of-type(n+2),
+.office-founder-copy blockquote {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .calendar-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .institutional-premise {
+    padding: 82px 5vw;
+  }
+}
+
+  
+/* =========================================================
+   TOP-TIER INSTITUTIONAL STRATEGIC CALENDAR REDESIGN
+   ========================================================= */
+
+#sessions {
+  background: #07111f;
+  color: var(--white);
+  padding: 118px 5vw;
+}
+
+#sessions .program-panel {
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  display: block !important;
+  padding: 0 !important;
+  color: var(--white);
+}
+
+#sessions .program-panel > div:first-child {
+  max-width: 1040px;
+}
+
+#sessions .program-panel h2 {
+  color: var(--white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(46px, 6vw, 96px);
+  line-height: .92;
+  letter-spacing: -.05em;
+  max-width: 980px;
+}
+
+#sessions .program-panel p {
+  color: rgba(255,255,255,.70) !important;
+  font-size: 18px !important;
+  line-height: 1.65;
+  max-width: 760px !important;
+  margin-top: 24px;
+}
+
+#sessions .button-row {
+  margin-top: 34px;
+}
+
+#sessions .btn.primary {
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--navy) !important;
+}
+
+#sessions .btn.secondary {
+  color: var(--white) !important;
+  border-color: rgba(255,255,255,.35) !important;
+}
+
+.strategic-calendar {
+  margin-top: 72px !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: 1.1fr .7fr 1.2fr;
+  gap: 28px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid rgba(255,255,255,.22);
+  color: rgba(255,255,255,.48);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.calendar-row {
+  display: grid !important;
+  grid-template-columns: 1.1fr .7fr 1.2fr !important;
+  gap: 28px !important;
+  padding: 34px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.12) !important;
+  align-items: center !important;
+  position: relative;
+}
+
+.calendar-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width .25s ease;
+}
+
+.calendar-row:hover::before {
+  width: 100%;
+}
+
+.calendar-market {
+  color: var(--white) !important;
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-size: clamp(34px, 4.2vw, 64px) !important;
+  line-height: .92 !important;
+  letter-spacing: -.045em !important;
+}
+
+.calendar-date {
+  color: var(--gold) !important;
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .14em !important;
+  font-weight: 800 !important;
+}
+
+.calendar-date span {
+  display: block;
+  color: rgba(255,255,255,.50);
+  margin-top: 8px;
+}
+
+.calendar-themes {
+  color: rgba(255,255,255,.72) !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+}
+
+.calendar-themes strong {
+  display: block;
+  color: var(--white);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: .13em;
+  margin-bottom: 12px;
+}
+
+.calendar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.calendar-tags em {
+  font-style: normal;
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.68);
+  padding: 7px 9px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .10em;
+  font-weight: 800;
+}
+
+.calendar-footnote {
+  margin-top: 32px;
+  max-width: 760px;
+  color: rgba(255,255,255,.52);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.program-details {
+  display: none !important;
+}
+
+@media (max-width: 900px) {
+  #sessions {
+    padding: 86px 5vw;
+  }
+
+  .calendar-header {
+    display: none;
+  }
+
+  .calendar-row {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 30px 0 !important;
+  }
+
+  .calendar-market {
+    font-size: clamp(34px, 10vw, 52px) !important;
+  }
+}
+
+</style>
 </head>
 
 <body>
   <header class="topbar">
-    <div class="brand"><img class="brand-crest" src="assets-images/tbg-logo-new.png" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
+    <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
     <nav>
       <a href="#advisory">Advisory</a>
       <a href="#renaissance">Caribbean Renaissance™</a>
@@ -1183,17 +1516,23 @@
       <div>
         <div class="eyebrow">Strategic Advisory | Hospitality | Development | Caribbean Opportunity</div>
         <h1><span class="hero-line">Building Order.</span><span class="hero-line">Advancing Opportunity.</span></h1>
-        <p>Strategic advisory across hospitality, development, capital alignment, and Caribbean opportunity.</p>
+        <div class="hero-subline">Caribbean Renaissance™</div>
+        <p>Organizing capital, development, and opportunity across the Caribbean.</p>
         <div class="button-row">
-          <a class="btn primary" href="#contact">Request Strategic Advisory</a>
-          <a class="btn secondary" href="#renaissance">Explore Caribbean Renaissance™</a>
+          <a class="btn primary" href="#advisory">Explore the Framework</a>
+          <a class="btn secondary" href="#sessions">Strategic Sessions 2026</a>
         </div>
       </div>
     </section>
 
+    <section class="institutional-premise" id="premise">
+      <div class="premise-label">Institutional Premise</div>
+      <h2>Opportunity becomes durable value only when capital, land, institutions, and execution are aligned.</h2>
+    </section>
+
     <section class="declaration-hero-band">
       <div class="declaration-label">Institutional Declaration</div>
-      <h2 class="declaration-title">2026: The Year of the Caribbean Renaissance™</h2>
+      <h2 class="declaration-title"><span>2026</span><span>The Year of the</span><span>Caribbean Renaissance™</span></h2>
       <div class="button-row declaration-button">
         <a class="btn primary" href="#renaissance">Learn More</a>
       </div>
@@ -1201,34 +1540,34 @@
 
     <section class="regional-demand">
       <div class="section-head">
-        <div class="eyebrow">Regional Demand</div>
-        <h2>The Caribbean Opportunity</h2>
-        <p>Selected indicators illustrating the scale of demand, economic relevance, and development potential across the Caribbean region.</p>
+        <div class="eyebrow">Caribbean Opportunity</div>
+        <h2>Caribbean Opportunity</h2>
+        <p>Signals informing regional opportunity.</p>
       </div>
 
       <div class="demand-grid">
         <article class="demand-stat">
           <div class="figure">35M+</div>
           <h3>Annual Visitors</h3>
-          <p>Sustained global demand reinforces the Caribbean’s position as one of the world’s most important hospitality regions.</p>
+          <p>Global demand continues to support hospitality growth.</p>
         </article>
 
         <article class="demand-stat">
           <div class="figure">20%–80%+</div>
-          <h3>Tourism Contribution to GDP</h3>
-          <p>Tourism remains a core economic driver across regional markets, shaping investment, employment, and infrastructure priorities.</p>
+          <h3>Tourism GDP Exposure</h3>
+          <p>Tourism remains a principal economic driver across the region.</p>
         </article>
 
         <article class="demand-stat">
           <div class="figure">10M+</div>
           <h3>Global Caribbean Diaspora</h3>
-          <p>A globally distributed population creates enduring demand, influence, relationships, and capital connection to the region.</p>
+          <p>A global network of capital, influence, and relationships.</p>
         </article>
 
         <article class="demand-stat">
           <div class="figure">$20B+</div>
           <h3>Annual Remittance Flows</h3>
-          <p>Remittance activity reflects the depth of economic connection between the diaspora and Caribbean households, markets, and institutions.</p>
+          <p>Reflecting sustained economic ties to the region.</p>
         </article>
       </div>
     </section>
@@ -1243,15 +1582,15 @@
     <section id="advisory">
       <div class="section-head">
         <div class="eyebrow">The Buckler Group</div>
-        <h2>Strategic advisory for complex markets.</h2>
-        <p>TBG advises institutions, investors, developers, and public-sector stakeholders where capital, hospitality, development, and execution must align.</p>
+        <h2>Strategic advisory for complex Caribbean markets.</h2>
+        <p>TBG advises where capital, hospitality, development, and execution must align.</p>
       </div>
 
       <div class="services">
-        <article class="service"><h3>Strategic Advisory</h3><p>Market-entry, institutional positioning, stakeholder alignment, and execution strategy.</p><ul><li>Market-entry strategy</li><li>Strategic positioning</li><li>Execution planning</li></ul></article>
-        <article class="service"><h3>Hospitality Advisory</h3><p>Destination strategy, hospitality positioning, tourism development, and project narrative.</p><ul><li>Hospitality strategy</li><li>Destination readiness</li><li>Resort positioning</li></ul></article>
-        <article class="service"><h3>Development Readiness</h3><p>Early-stage project assessment across land use, approvals, incentives, and market viability.</p><ul><li>Pre-development review</li><li>Entitlement pathways</li><li>Public-private alignment</li></ul></article>
-        <article class="service"><h3>Capital Alignment</h3><p>Opportunity framing, investor readiness, partnership strategy, and strategic communication.</p><ul><li>Investment narrative</li><li>Partnership strategy</li><li>Investor readiness</li></ul></article>
+        <article class="service"><h3>Strategic Advisory</h3><p>Market-entry, positioning, and execution strategy.</p><ul><li>Market-entry strategy</li><li>Strategic positioning</li><li>Execution planning</li></ul></article>
+        <article class="service"><h3>Hospitality Advisory</h3><p>Hospitality demand and destination positioning.</p><ul><li>Hospitality strategy</li><li>Destination readiness</li><li>Resort positioning</li></ul></article>
+        <article class="service"><h3>Development Readiness</h3><p>Land use, approvals, incentives, and entitlement pathways.</p><ul><li>Pre-development review</li><li>Entitlement pathways</li><li>Public-private alignment</li></ul></article>
+        <article class="service"><h3>Capital Alignment</h3><p>Capital, partnerships, and investor readiness.</p><ul><li>Investment narrative</li><li>Partnership strategy</li><li>Investor readiness</li></ul></article>
       </div>
     </section>
 
@@ -1262,14 +1601,88 @@
     <section id="sessions">
       <div class="program-panel">
         <div>
-          <div class="eyebrow">Flagship Program</div>
-          <h2>Caribbean Entitlement & Hospitality Strategic Sessions</h2>
-          <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">A curated executive platform examining hospitality, development readiness, entitlement pathways, and jurisdiction opportunity across the Caribbean.</p>
+          <div class="eyebrow">2026 Caribbean Strategic Calendar</div>
+          <h2>Strategic Sessions</h2>
+          <p style="color:rgba(255,255,255,.78);font-size:18px;max-width:720px;">Jurisdiction-led discussions on development, investment, entitlement, and execution.</p>
           <div class="button-row">
             <a class="btn primary" href="#participate">Reserve Participation</a>
             <a class="btn secondary" href="#jurisdictions">Priority Markets</a>
           </div>
         </div>
+
+          
+          <div class="strategic-calendar" aria-label="2026 Caribbean Strategic Calendar">
+            <div class="calendar-header">
+              <div>Jurisdiction</div>
+              <div>Session Date</div>
+              <div>Strategic Review Lens</div>
+            </div>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Guyana</div>
+              <div class="calendar-date">19 July 2026<span>Opening Session</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Energy-led expansion, infrastructure growth, and rising hospitality demand.
+                <div class="calendar-tags"><em>Energy</em><em>Infrastructure</em><em>Hospitality</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Barbados</div>
+              <div class="calendar-date">21 August 2026<span>Priority Market</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Lifestyle demand, global capital flows, and luxury hospitality positioning.
+                <div class="calendar-tags"><em>Luxury</em><em>Capital</em><em>Lifestyle</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Bahamas</div>
+              <div class="calendar-date">18 September 2026<span>Priority Market</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Resort scale, maritime economy, and international visitation strength.
+                <div class="calendar-tags"><em>Resorts</em><em>Maritime</em><em>Tourism Scale</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Grenada</div>
+              <div class="calendar-date">16 October 2026<span>Priority Market</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Regenerative tourism, climate resilience, and destination development.
+                <div class="calendar-tags"><em>Regeneration</em><em>Climate</em><em>Destination</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Antigua & Barbuda</div>
+              <div class="calendar-date">20 November 2026<span>Priority Market</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Marina infrastructure, yachting economy, and luxury residential demand.
+                <div class="calendar-tags"><em>Marina</em><em>Yachting</em><em>Residential</em></div>
+              </div>
+            </article>
+
+            <article class="calendar-row">
+              <div class="calendar-market">Trinidad & Tobago</div>
+              <div class="calendar-date">18 December 2026<span>Priority Market</span></div>
+              <div class="calendar-themes">
+                <strong>Strategic focus</strong>
+                Commercial depth, institutional capacity, and Tobago tourism repositioning.
+                <div class="calendar-tags"><em>Commercial</em><em>Institutional</em><em>Tourism</em></div>
+              </div>
+            </article>
+
+            <p class="calendar-footnote">
+              The calendar is designed as a jurisdiction-led strategic review sequence for qualified stakeholders examining Caribbean development readiness, hospitality investment, entitlement pathways, and execution capacity.
+            </p>
+          </div>
+
 
         <div class="program-details">
           <div><strong>Powered By</strong><span>EXODUS™</span></div>
@@ -1299,29 +1712,29 @@
     <section id="exodus" class="dark-section">
       <div class="section-head">
         <div class="eyebrow">EXODUS™</div>
-        <h2>The Caribbean convening platform.</h2>
-        <p>EXODUS™ powers the Strategic Sessions and related executive programming focused on Caribbean opportunity, jurisdiction engagement, and market-facing dialogue.</p>
+        <h2>Private intelligence and convening infrastructure.</h2>
+        <p>Intelligence, access, and engagement for qualified participants.</p>
       </div>
 
       <div class="cards">
-        <article class="role-card"><div class="tag">Programs</div><h3>Strategic Sessions</h3><p>Executive conversations organized around hospitality, entitlement, development readiness, and jurisdiction opportunity.</p></article>
-        <article class="role-card"><div class="tag">Engagement</div><h3>Executive Sessions</h3><p>Curated forums for senior stakeholders across development, investment, hospitality, and public leadership.</p></article>
-        <article class="role-card"><div class="tag">Jurisdiction Opportunity Mission™</div><h3>Jurisdiction Engagement</h3><p>Invitation-only inward real estate missions for selected jurisdictions, priority projects, and qualified participants.</p></article>
+        <article class="role-card"><div class="tag">Programs</div><h3>Strategic Sessions</h3><p>Jurisdiction intelligence and strategic context.</p></article>
+        <article class="role-card"><div class="tag">Engagement</div><h3>Executive Sessions</h3><p>Private executive dialogue.</p></article>
+        <article class="role-card"><div class="tag">Jurisdiction Opportunity Mission™</div><h3>Jurisdiction Engagement</h3><p>Structured in-market engagement.</p></article>
       </div>
     </section>
 <section>
       <div class="section-head">
-        <div class="eyebrow">Market-Making Discipline</div>
+        <div class="eyebrow">TBG Ecosystem</div>
         <h2>Order before opportunity.</h2>
-        <p>TBG works where markets require structure: clearer positioning, credible development narratives, disciplined stakeholder alignment, and investable pathways.</p>
+        <p>Translating thesis into execution.</p>
       </div>
 
       <div class="affiliations">
-        <div class="affiliation"><strong>Position</strong><span>Define the market thesis and clarify the opportunity.</span></div>
-        <div class="affiliation"><strong>Structure</strong><span>Organize the pathway from interest to execution.</span></div>
-        <div class="affiliation"><strong>Align</strong><span>Bring public, private, and capital priorities into focus.</span></div>
-        <div class="affiliation"><strong>Signal</strong><span>Frame development readiness for serious stakeholders.</span></div>
-        <div class="affiliation"><strong>Advance</strong><span>Move from fragmented interest to disciplined action.</span></div>
+        <div class="affiliation"><strong>Position</strong><span>The organizing thesis.</span></div>
+        <div class="affiliation"><strong>Structure</strong><span>Strategic advisory and execution architecture.</span></div>
+        <div class="affiliation"><strong>Align</strong><span>Intelligence, access, and convening.</span></div>
+        <div class="affiliation"><strong>Signal</strong><span>Structured jurisdiction dialogue.</span></div>
+        <div class="affiliation"><strong>Advance</strong><span>From discussion to execution.</span></div>
       </div>
     </section>
 
@@ -1333,9 +1746,10 @@
 
         <div class="office-founder-copy">
           <div class="eyebrow">Office of the Founder</div>
-          <h2>Architect of Order</h2>
+          <div class="founder-subtitle">Architect of Order</div>
+          <h2>Founder Perspective</h2>
 
-          <p>The Buckler Group was established on a simple premise: enduring economic value is created when institutions, capital, and place are brought into alignment.</p>
+          <p>Opportunity becomes durable value when capital, institutions, land, and execution are aligned.</p>
 
           <p>The Caribbean is entering a period of structural transformation characterized by increasing tourism demand, infrastructure investment, diaspora engagement, and evolving capital flows.</p>
 
@@ -1349,7 +1763,7 @@
 
           <div class="office-founder-signature">
             <strong>Christopher A. Browne</strong>
-            <span>Founder & Chief Executive Officer</span>
+            <span>Founder & CEO</span>
           </div>
         </div>
       </div>
@@ -1372,12 +1786,12 @@
       <div class="section-head">
         <div class="eyebrow">EXODUS™</div>
         <h2>EXODUS™</h2>
-        <p>Applications are being accepted for future participation in selected EXODUS™ initiatives.</p>
+        <p>Intelligence, access, and engagement for qualified participants.</p>
       </div>
 
       <div style="max-width:900px;background:#fff;padding:40px;border:1px solid rgba(7,17,31,.12);">
         <h3 style="margin-top:0;color:#07111f;">Charter Membership</h3>
-        <p style="color:#667085;">Participation is selective and structured for individuals and institutions aligned with long-term Caribbean opportunity.</p>
+        <p style="color:#667085;">Selective participation for long-term Caribbean opportunity.</p>
         <a class="btn primary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">Apply for Charter Membership</a>
       </div>
     </section>
@@ -1387,7 +1801,7 @@
       <div>
         <div class="eyebrow">Engage TBG</div>
         <h2>Request strategic advisory.</h2>
-        <p style="color:rgba(255,255,255,.72);max-width:700px;">For advisory inquiries, invitation requests, EXODUS™ programming, or jurisdiction-related engagement.</p>
+        <p style="color:rgba(255,255,255,.72);max-width:700px;">For advisory, Strategic Sessions, EXODUS™, or jurisdiction-related engagement.</p>
       </div>
       <div class="button-row">
         <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com">Request Advisory</a>
@@ -1402,7 +1816,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <h3>The Buckler Group</h3>
-        <p>Strategic advisory across hospitality, development, capital alignment, and Caribbean opportunity.</p>
+        <p>Strategic advisory through The Caribbean Renaissance™ Framework.</p>
       </div>
 
       <div class="footer-column">

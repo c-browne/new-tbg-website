@@ -3220,56 +3220,72 @@ background:#ddb560;
 }
 </style>
 </head>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
 
 <script>
-const map = L.map("tbgMap", {
-  center: [17.5, -67.5],
-  zoom: 5,
-  scrollWheelZoom: false
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w';
+
+const map = new mapboxgl.Map({
+    container: 'tbgMap',
+
+    style: 'mapbox://styles/mapbox/standard',
+
+    center: [-65.8, 16.0],
+
+    zoom: 4.25,
+
+    pitch: 0,
+
+    bearing: 0,
+
+    antialias: true
 });
 
-L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
-  maxZoom: 10,
-  attribution: "&copy; OpenStreetMap contributors"
-}).addTo(map);
+map.on('style.load', () => {
 
-const goldIcon = L.divIcon({
-  className: "",
-  html: '<div class="tbg-marker"></div>',
-  iconSize: [18, 18],
-  iconAnchor: [9, 9]
+    map.setConfigProperty('basemap', 'lightPreset', 'night');
+
+    map.setConfigProperty('basemap', 'showPlaceLabels', true);
+
+    map.setConfigProperty('basemap', 'showRoadLabels', false);
+
+    map.setConfigProperty('basemap', 'showPointOfInterestLabels', false);
+
+    map.setConfigProperty('basemap', 'showTransitLabels', false);
+
 });
+
 
 const markets = [
   {
     name: "The Bahamas",
-    coords: [25.0343, -77.3963],
+    coords: [-77.3963, 25.0343],
     focus: "UHNW hospitality, second homes, resort development, and financial services."
   },
   {
     name: "Antigua & Barbuda",
-    coords: [17.0608, -61.7964],
+    coords: [-61.7964, 17.0608],
     focus: "Marina, luxury hospitality, citizenship-linked investment, and resort development."
   },
   {
     name: "Barbados",
-    coords: [13.1939, -59.5432],
+    coords: [ -59.5432, 13.1939,],
     focus: "Institutional finance, luxury hospitality, treaty networks, and professional services."
   },
   {
     name: "Grenada",
-    coords: [12.1165, -61.6790],
+    coords: [ -61.6790, 12.1165,],
     focus: "Eco-tourism, coastal entitlement, university-linked development, and regenerative hospitality."
   },
   {
     name: "Tobago",
-    coords: [11.2500, -60.6670],
+    coords: [-60.6670, 11.2500,],
     focus: "Tourism repositioning, resort development, cultural capital, and public-private strategy."
   },
   {
     name: "Guyana",
-    coords: [6.8013, -58.1551],
+    coords: [ -58.1551, 6.8013,],
     focus: "Energy-led growth, infrastructure, hospitality demand, and frontier capital formation."
   }
 ];

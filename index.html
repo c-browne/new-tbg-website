@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link
-  rel="stylesheet"
- 
-/>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,122 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  .tbg-leaflet-section {
-  background: #06101a;
-  padding: 96px 5vw;
-  color: #fff;
-}
-
-.map-intro {
-  max-width: 860px;
-  margin-bottom: 40px;
-}
-
-.map-intro h2 {
-  font-family: Georgia, serif;
-  font-size: clamp(40px, 5vw, 72px);
-  font-weight: 400;
-  margin: 0 0 16px;
-}
-
-.map-intro p {
-  color: #cfd6dd;
-  line-height: 1.6;
-}
-
-.eyebrow,
-.panel-kicker {
-  color: #c9a24a;
-  text-transform: uppercase;
-  letter-spacing: .18em;
-  font-size: 12px;
-}
-
-.map-platform {
-  display: grid;
-  grid-template-columns: 1.6fr .8fr;
-  min-height: 640px;
-  border: 1px solid rgba(201,162,74,.35);
-  background: #02060a;
-}
-
-#tbgMap {
-  min-height: 640px;
-  width: 100%;
-}
-
-.jurisdiction-panel {
-  padding: 36px;
-  background: #08111a;
-  border-left: 1px solid rgba(201,162,74,.35);
-}
-
-.jurisdiction-panel h3 {
-  font-family: Georgia, serif;
-  font-size: 36px;
-  font-weight: 400;
-  margin: 12px 0 18px;
-}
-
-.jurisdiction-panel p {
-  color: #cfd6dd;
-  line-height: 1.6;
-}
-
-.tbg-marker {
-  width: 18px;
-  height: 18px;
-  background: #c9a24a;
-  border: 2px solid #fff3cf;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8px rgba(201,162,74,.22),
-    0 0 24px rgba(201,162,74,.75);
-}
-
-@media (max-width: 900px) {
-  .map-platform {
-    grid-template-columns: 1fr;
-  }
-
-  .jurisdiction-panel {
-    border-left: none;
-    border-top: 1px solid rgba(201,162,74,.35);
-  }
-}
-  .tbg-marker {
-  width: 18px;
-  height: 18px;
-  background: #c9a24a;
-  border: 2px solid #fff1c6;
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 8px rgba(201,162,74,.20),
-    0 0 28px rgba(201,162,74,.75);
-  cursor: pointer;
-  position: relative;
-}
-
-.tbg-marker::after {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  border: 1px solid rgba(201,162,74,.55);
-  border-radius: 50%;
-  animation: tbgPulse 2.2s infinite;
-}
-
-@keyframes tbgPulse {
-  0% {
-    transform: scale(.65);
-    opacity: .85;
-  }
-
-  100% {
-    transform: scale(1.8);
-    opacity: 0;
-  }
-}
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
   <style>
     .calendar-actions {
   display: flex;
@@ -3218,196 +3099,144 @@ font-weight:700;
 background:#ddb560;
 
 }
-</style>
-</head>
-<link href="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.css" rel="stylesheet">
-
-<script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w';
-
-const map = new mapboxgl.Map({
-    container: 'tbgMap',
-
-    style: 'mapbox://styles/mapbox/standard',
-
-    center: [-65.8, 16.0],
-
-    zoom: 4.25,
-
-    pitch: 0,
-
-    bearing: 0,
-
-    antialias: true
-});
-
-map.on('style.load', () => {
-
-    map.setConfigProperty('basemap', 'lightPreset', 'night');
-
-    map.setConfigProperty('basemap', 'showPlaceLabels', true);
-
-    map.setConfigProperty('basemap', 'showRoadLabels', false);
-
-    map.setConfigProperty('basemap', 'showPointOfInterestLabels', false);
-
-    map.setConfigProperty('basemap', 'showTransitLabels', false);
-
-});
 
 
-const markets = [
-  {
-    name: "The Bahamas",
-    coords: [-77.3963, 25.0343],
-    focus: "UHNW hospitality, second homes, resort development, and financial services."
-  },
-  {
-    name: "Antigua & Barbuda",
-    coords: [-61.7964, 17.0608],
-    focus: "Marina, luxury hospitality, citizenship-linked investment, and resort development."
-  },
-  {
-    name: "Barbados",
-    coords: [ -59.5432, 13.1939,],
-    focus: "Institutional finance, luxury hospitality, treaty networks, and professional services."
-  },
-  {
-    name: "Grenada",
-    coords: [ -61.6790, 12.1165,],
-    focus: "Eco-tourism, coastal entitlement, university-linked development, and regenerative hospitality."
-  },
-  {
-    name: "Tobago",
-    coords: [-60.6670, 11.2500,],
-    focus: "Tourism repositioning, resort development, cultural capital, and public-private strategy."
-  },
-  {
-    name: "Guyana",
-    coords: [ -58.1551, 6.8013,],
-    focus: "Energy-led growth, infrastructure, hospitality demand, and frontier capital formation."
-  }
-];
-
-markets.forEach(market => {
-  const markerElement = document.createElement("div");
-  markerElement.className = "tbg-marker";
-  markerElement.title = market.name;
-
-  new mapboxgl.Marker({
-    element: markerElement,
-    anchor: "center"
-  })
-    .setLngLat(market.coords)
-    .addTo(map);
-
-  markerElement.addEventListener("click", () => {
-    document.getElementById("jurisdictionPanel").innerHTML = `
-      <p class="panel-kicker">Jurisdiction Intelligence</p>
-      <h3>${market.name}</h3>
-      <p><strong>${market.session}</strong></p>
-      <p>${market.focus}</p>
-      <a href="participation.html" class="market-button">
-        Reserve Participation
-      </a>
-    `;
-  });
-});
-</script>
-  const markets = [
-
-{
-    name: "The Bahamas",
-    coords: [-77.3963,25.0343],
-    session: "2026 Strategic Session",
-    focus: "Luxury Hospitality • Second Homes • Financial Services"
-},
-
-{
-    name: "Antigua & Barbuda",
-    coords: [-61.7964,17.0608],
-    session: "2026 Strategic Session",
-    focus: "Marinas • Hospitality • Citizenship Investment"
-},
-
-{
-    name: "Barbados",
-    coords: [-59.5432,13.1939],
-    session: "2026 Strategic Session",
-    focus: "Institutional Capital • Hospitality • Professional Services"
-},
-
-{
-    name: "Grenada",
-    coords: [-61.6790,12.1165],
-    session: "2026 Strategic Session",
-    focus: "Eco Tourism • Mixed Use • Coastal Development"
-},
-
-{
-    name: "Tobago",
-    coords: [-60.6670,11.2500],
-    session: "2026 Strategic Session",
-    focus: "Tourism • Waterfront • Infrastructure"
-},
-
-{
-    name: "Guyana",
-    coords: [-58.1551,6.8013],
-    session: "July 2026",
-    focus: "Energy • Infrastructure • Hospitality"
-
+/* =========================================================
+   MAPBOX INTERACTIVE JURISDICTION MAP — CLEAN PRODUCTION
+   ========================================================= */
+.tbg-mapbox-section {
+  background: #06101a;
+  color: #fff;
+  padding: 96px 5vw;
+  border-top: 1px solid rgba(183,144,75,.28);
+  border-bottom: 1px solid rgba(183,144,75,.28);
 }
 
-];
-  markets.forEach(market => {
+.tbg-mapbox-section .section-head h2 {
+  color: #fff;
+}
 
-const marker=document.createElement("div");
+.tbg-mapbox-section .section-head p {
+  color: rgba(255,255,255,.70);
+}
 
-marker.className="tbg-marker";
+.tbg-map-platform {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, .75fr);
+  min-height: 660px;
+  border: 1px solid rgba(183,144,75,.38);
+  background: #02060a;
+  box-shadow: 0 34px 90px rgba(0,0,0,.22);
+  overflow: hidden;
+}
 
-new mapboxgl.Marker(marker)
+#tbgMap {
+  min-height: 660px;
+  width: 100%;
+}
 
-.setLngLat(market.coords)
+.tbg-jurisdiction-panel {
+  padding: 38px;
+  background: linear-gradient(180deg, #08111a 0%, #050b12 100%);
+  border-left: 1px solid rgba(183,144,75,.38);
+}
 
-.addTo(map)
+.tbg-jurisdiction-panel h3 {
+  color: #fff;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(34px, 3.2vw, 54px);
+  font-weight: 600;
+  line-height: 1;
+  margin: 12px 0 18px;
+}
 
-.getElement()
+.tbg-jurisdiction-panel p {
+  color: rgba(255,255,255,.72);
+  line-height: 1.65;
+}
 
-.addEventListener("click",()=>{
+.panel-kicker {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 11px;
+  font-weight: 800;
+}
 
-document.getElementById("jurisdictionPanel").innerHTML=`
+.tbg-marker {
+  width: 18px;
+  height: 18px;
+  background: #c9a24a;
+  border: 2px solid #fff1c6;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(201,162,74,.20),
+    0 0 28px rgba(201,162,74,.75);
+  cursor: pointer;
+  position: relative;
+}
 
-<p class="panel-kicker">
+.tbg-marker::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(201,162,74,.55);
+  border-radius: 50%;
+  animation: tbgPulse 2.2s infinite;
+}
 
-Jurisdiction Intelligence
+@keyframes tbgPulse {
+  0% { transform: scale(.65); opacity: .85; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
 
-</p>
+.market-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  min-width: 235px;
+  min-height: 54px;
+  padding: 0 26px;
+  background: var(--gold);
+  color: var(--navy);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  font-weight: 800;
+  border: 1px solid var(--gold);
+  transition: all .25s ease;
+}
 
-<h3>${market.name}</h3>
+.market-button:hover {
+  background: #d8ae5a;
+  border-color: #d8ae5a;
+  transform: translateY(-1px);
+}
 
-<p>
+.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-attrib {
+  opacity: .55;
+}
 
-<strong>${market.session}</strong>
+@media (max-width: 900px) {
+  .tbg-map-platform {
+    grid-template-columns: 1fr;
+  }
 
-</p>
+  #tbgMap {
+    min-height: 520px;
+  }
 
-<p>${market.focus}</p>
+  .tbg-jurisdiction-panel {
+    border-left: none;
+    border-top: 1px solid rgba(183,144,75,.38);
+  }
+}
 
-<a href="participation.html"
-
-class="market-button">
-
-Reserve Participation
-
-</a>
-
-`;
-
-});
-
-});
+</style>
+</head>
 <body>
   <header class="topbar">
     <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
@@ -3665,32 +3494,23 @@ Strategic Sessions Powered by EXODUS™
     </section>
 
     
-    <section class="jurisdiction-map-section" id="jurisdiction-map">
+    <section class="tbg-mapbox-section" id="jurisdiction-map">
       <div class="section-head">
         <div class="eyebrow">Interactive Jurisdiction Map</div>
         <h2>Caribbean markets in strategic sequence.</h2>
         <p>Select a jurisdiction to view its session date, investment themes, and development considerations.</p>
       </div>
 
-   <section class="tbg-leaflet-section">
-  <div class="map-intro">
-    <p class="eyebrow">Jurisdiction Intelligence</p>
-    <h2>Caribbean Markets in Strategic Sequence</h2>
-    <p>
-      A production-grade regional map using precise geographic coordinates.
-    </p>
-  </div>
+      <div class="tbg-map-platform">
+        <div id="tbgMap" aria-label="Interactive Caribbean jurisdiction map"></div>
 
-  <div class="map-platform">
-    <div id="tbgMap"></div>
-
-    <aside class="jurisdiction-panel" id="jurisdictionPanel">
-      <p class="panel-kicker">Market Intelligence</p>
-      <h3>Caribbean Basin</h3>
-      <p>Select a jurisdiction marker to review strategic focus.</p>
-    </aside>
-  </div>
-</section>
+        <aside class="tbg-jurisdiction-panel" id="jurisdictionPanel">
+          <p class="panel-kicker">Jurisdiction Intelligence</p>
+          <h3>Caribbean Basin</h3>
+          <p>Select a market marker to review TBG’s strategic lens.</p>
+        </aside>
+      </div>
+    </section>
 
     <section id="exodus" class="dark-section exodus-integration">
       <div class="section-head">
@@ -3708,7 +3528,7 @@ Strategic Sessions Powered by EXODUS™
 
       <div class="exodus-pathways">
         <a href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">Apply for Charter Membership</a>
-        <a href="https://example.com/strategic-sessions-reserve" target="_blank" rel="noopener">Access Strategic Sessions</a>
+        <a href="participation.html">Access Strategic Sessions</a>
         <a href="mailto:cbrowne@thebucklergroup.com?subject=EXODUS%20Strategic%20Inquiry">Request Private Inquiry</a>
       </div>
     </section>
@@ -3789,7 +3609,7 @@ Strategic Sessions Powered by EXODUS™
       </div>
       <div class="button-row">
         <a class="btn primary" href="mailto:cbrowne@thebucklergroup.com?subject=Strategic%20Advisory%20Inquiry">Engage TBG</a>
-        <a class="btn secondary" href="https://example.com/strategic-sessions-reserve" target="_blank" rel="noopener">Strategic Sessions</a>
+        <a class="btn secondary" href="participation.html">Strategic Sessions</a>
         <a class="btn secondary" href="https://example.com/exodus-charter-membership" target="_blank" rel="noopener">EXODUS™</a>
       </div>
     </div>
@@ -3823,8 +3643,8 @@ Strategic Sessions Powered by EXODUS™
       <div class="footer-column">
         <h4>Engage</h4>
         <a href="#contact">Request Advisory</a>
-        <a href="https://example.com/strategic-sessions-reserve" target="_blank" rel="noopener">Reserve Participation</a>
-        <a href="#participation.html">Request Invitation</a>
+        <a href="participation.html">Reserve Participation</a>
+        <a href="participation.html">Request Invitation</a>
         <span>New York | Caribbean</span>
       </div>
     </div>
@@ -3836,9 +3656,95 @@ Strategic Sessions Powered by EXODUS™
   </footer>
 
 
+
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 <script>
-const marketData={guyana:{title:"Guyana",date:"17 July 2026",copy:"Energy-led expansion, infrastructure development, and rising hospitality demand define the opening Strategic Session.",themes:["Energy","Infrastructure","Hospitality"],considerations:"Market access, hotel demand, urban infrastructure, entitlement readiness, and institutional coordination."},barbados:{title:"Barbados",date:"21 August 2026",copy:"Lifestyle demand, global capital flows, and luxury hospitality positioning shape the Barbados review.",themes:["Luxury","Capital","Lifestyle"],considerations:"Branded residential demand, financial infrastructure, resort positioning, and planning coordination."},bahamas:{title:"Bahamas",date:"18 September 2026",copy:"Resort scale, maritime economy, and international visitation strength define the Bahamas review.",themes:["Resorts","Maritime","Tourism Scale"],considerations:"Large-scale resort infrastructure, island logistics, maritime assets, and investment precedent."},grenada:{title:"Grenada",date:"16 October 2026",copy:"Regenerative tourism, climate resilience, and destination development shape the Grenada review.",themes:["Regeneration","Climate","Destination"],considerations:"Climate-aligned development, boutique hospitality, education-linked opportunity, and destination positioning."},antigua:{title:"Antigua & Barbuda",date:"20 November 2026",copy:"Marina infrastructure, yachting economy, and luxury residential demand define the Antigua & Barbuda review.",themes:["Marina","Yachting","Residential"],considerations:"Maritime infrastructure, luxury residential demand, resort positioning, and high-value visitor markets."},tt:{title:"Trinidad & Tobago",date:"18 December 2026",copy:"Commercial depth, institutional capacity, and Tobago tourism repositioning shape the Trinidad & Tobago review.",themes:["Commercial","Institutional","Tourism"],considerations:"Commercial infrastructure, institutional depth, Tobago repositioning, and diversification potential."}};
-document.querySelectorAll(".map-pin").forEach(pin=>{pin.addEventListener("click",()=>{const data=marketData[pin.dataset.market];document.querySelectorAll(".map-pin").forEach(p=>p.classList.remove("active"));pin.classList.add("active");document.getElementById("map-title").textContent=data.title;document.getElementById("map-date").textContent=data.date;document.getElementById("map-copy").textContent=data.copy;document.getElementById("map-considerations").textContent=data.considerations;document.getElementById("map-themes").innerHTML=data.themes.map(t=>`<span>${t}</span>`).join("");});});
+(function () {
+  const mapEl = document.getElementById("tbgMap");
+  const panel = document.getElementById("jurisdictionPanel");
+
+  if (!mapEl || !panel || typeof mapboxgl === "undefined") return;
+
+  mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w";
+
+  const map = new mapboxgl.Map({
+    container: "tbgMap",
+    style: "mapbox://styles/mapbox/satellite-streets-v12",
+    center: [-65.8, 16.0],
+    zoom: 4.25,
+    pitch: 0,
+    bearing: 0,
+    antialias: true
+  });
+
+  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-left");
+  map.scrollZoom.disable();
+
+  const markets = [
+    {
+      name: "The Bahamas",
+      coords: [-77.3963, 25.0343],
+      session: "2026 Strategic Session",
+      focus: "Luxury Hospitality • Second Homes • Financial Services"
+    },
+    {
+      name: "Antigua & Barbuda",
+      coords: [-61.7964, 17.0608],
+      session: "2026 Strategic Session",
+      focus: "Marinas • Hospitality • Citizenship Investment"
+    },
+    {
+      name: "Barbados",
+      coords: [-59.5432, 13.1939],
+      session: "2026 Strategic Session",
+      focus: "Institutional Capital • Hospitality • Professional Services"
+    },
+    {
+      name: "Grenada",
+      coords: [-61.6790, 12.1165],
+      session: "2026 Strategic Session",
+      focus: "Eco Tourism • Mixed Use • Coastal Development"
+    },
+    {
+      name: "Tobago",
+      coords: [-60.6670, 11.2500],
+      session: "2026 Strategic Session",
+      focus: "Tourism • Waterfront • Infrastructure"
+    },
+    {
+      name: "Guyana",
+      coords: [-58.1551, 6.8013],
+      session: "July 2026",
+      focus: "Energy • Infrastructure • Hospitality"
+    }
+  ];
+
+  map.on("load", () => {
+    markets.forEach((market) => {
+      const marker = document.createElement("div");
+      marker.className = "tbg-marker";
+      marker.title = market.name;
+
+      new mapboxgl.Marker({ element: marker, anchor: "center" })
+        .setLngLat(market.coords)
+        .addTo(map);
+
+      marker.addEventListener("click", () => {
+        panel.innerHTML = `
+          <p class="panel-kicker">Jurisdiction Intelligence</p>
+          <h3>${market.name}</h3>
+          <p><strong>${market.session}</strong></p>
+          <p>${market.focus}</p>
+          <a href="participation.html" class="market-button">Reserve Participation</a>
+        `;
+
+        map.flyTo({ center: market.coords, zoom: Math.max(map.getZoom(), 5.2), speed: .75, curve: 1.35 });
+      });
+    });
+  });
+})();
 </script>
 
 </body>

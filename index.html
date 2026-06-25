@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +11,89 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  .tbg-leaflet-section {
+  background: #06101a;
+  padding: 96px 5vw;
+  color: #fff;
+}
+
+.map-intro {
+  max-width: 860px;
+  margin-bottom: 40px;
+}
+
+.map-intro h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 400;
+  margin: 0 0 16px;
+}
+
+.map-intro p {
+  color: #cfd6dd;
+  line-height: 1.6;
+}
+
+.eyebrow,
+.panel-kicker {
+  color: #c9a24a;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 12px;
+}
+
+.map-platform {
+  display: grid;
+  grid-template-columns: 1.6fr .8fr;
+  min-height: 640px;
+  border: 1px solid rgba(201,162,74,.35);
+  background: #02060a;
+}
+
+#tbgMap {
+  min-height: 640px;
+  width: 100%;
+}
+
+.jurisdiction-panel {
+  padding: 36px;
+  background: #08111a;
+  border-left: 1px solid rgba(201,162,74,.35);
+}
+
+.jurisdiction-panel h3 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 12px 0 18px;
+}
+
+.jurisdiction-panel p {
+  color: #cfd6dd;
+  line-height: 1.6;
+}
+
+.tbg-marker {
+  width: 18px;
+  height: 18px;
+  background: #c9a24a;
+  border: 2px solid #fff3cf;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 8px rgba(201,162,74,.22),
+    0 0 24px rgba(201,162,74,.75);
+}
+
+@media (max-width: 900px) {
+  .map-platform {
+    grid-template-columns: 1fr;
+  }
+
+  .jurisdiction-panel {
+    border-left: none;
+    border-top: 1px solid rgba(201,162,74,.35);
+  }
+}
   <style>
     .calendar-actions {
   display: flex;
@@ -3074,7 +3161,72 @@
 
 </style>
 </head>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<script>
+const map = L.map("tbgMap", {
+  center: [17.5, -67.5],
+  zoom: 5,
+  scrollWheelZoom: false
+});
+
+L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+  maxZoom: 10,
+  attribution: "&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+const goldIcon = L.divIcon({
+  className: "",
+  html: '<div class="tbg-marker"></div>',
+  iconSize: [18, 18],
+  iconAnchor: [9, 9]
+});
+
+const markets = [
+  {
+    name: "The Bahamas",
+    coords: [25.0343, -77.3963],
+    focus: "UHNW hospitality, second homes, resort development, and financial services."
+  },
+  {
+    name: "Antigua & Barbuda",
+    coords: [17.0608, -61.7964],
+    focus: "Marina, luxury hospitality, citizenship-linked investment, and resort development."
+  },
+  {
+    name: "Barbados",
+    coords: [13.1939, -59.5432],
+    focus: "Institutional finance, luxury hospitality, treaty networks, and professional services."
+  },
+  {
+    name: "Grenada",
+    coords: [12.1165, -61.6790],
+    focus: "Eco-tourism, coastal entitlement, university-linked development, and regenerative hospitality."
+  },
+  {
+    name: "Tobago",
+    coords: [11.2500, -60.6670],
+    focus: "Tourism repositioning, resort development, cultural capital, and public-private strategy."
+  },
+  {
+    name: "Guyana",
+    coords: [6.8013, -58.1551],
+    focus: "Energy-led growth, infrastructure, hospitality demand, and frontier capital formation."
+  }
+];
+
+markets.forEach(market => {
+  L.marker(market.coords, { icon: goldIcon })
+    .addTo(map)
+    .on("click", () => {
+      document.getElementById("jurisdictionPanel").innerHTML = `
+        <p class="panel-kicker">Jurisdiction Intelligence</p>
+        <h3>${market.name}</h3>
+        <p>${market.focus}</p>
+      `;
+    });
+});
+</script>
 <body>
   <header class="topbar">
     <div class="brand"><img class="brand-crest" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5MDAiIGhlaWdodD0iOTAwIiB2aWV3Qm94PSIwIDAgOTAwIDkwMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUQkcgY3Jlc3QgbG9nbyI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImdvbGQiIHgxPSIxMjAiIHkxPSIxMDAiIHgyPSI3ODAiIHkyPSI4MzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRjNEMzg2Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4yOCIgc3RvcC1jb2xvcj0iI0M5OUE0NSIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNTgiIHN0b3AtY29sb3I9IiNGN0Q5OEUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIwLjc4IiBzdG9wLWNvbG9yPSIjQTk3NjI4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0U4QzQ2RSIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ29sZFNvZnQiIHgxPSIyMzAiIHkxPSIyMTAiIHgyPSI3MTAiIHkyPSI2OTAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjRkZFM0ExIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMC4zNSIgc3RvcC1jb2xvcj0iI0QyQTM0QiIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjAuNjUiIHN0b3AtY29sb3I9IiNGNEQ0ODUiLz4KICAgICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjQjI3RjJGIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0ic29mdFNoYWRvdyIgeD0iLTIwJSIgeT0iLTIwJSIgd2lkdGg9IjE0MCUiIGhlaWdodD0iMTQwJSI+CiAgICAgIDxmZURyb3BTaGFkb3cgZHg9IjAiIGR5PSI4IiBzdGREZXZpYXRpb249IjEwIiBmbG9vZC1jb2xvcj0iIzAwMDAwMCIgZmxvb2Qtb3BhY2l0eT0iMC4zNSIvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgoKICA8ZyBmaWx0ZXI9InVybCgjc29mdFNoYWRvdykiPgogICAgPHBhdGggZD0iTTQ1MCA1NAogICAgICAgICAgICAgQzU0MCAxMDUgNjU0IDE0MSA4MDUgMTQyCiAgICAgICAgICAgICBMODA1IDQxMwogICAgICAgICAgICAgQzgwNSA1ODMgNjc4IDczNSA0NTAgODQ2CiAgICAgICAgICAgICBDMjIyIDczNSA5NSA1ODMgOTUgNDEzCiAgICAgICAgICAgICBMOTUgMTQyCiAgICAgICAgICAgICBDMjQ2IDE0MSAzNjAgMTA1IDQ1MCA1NFoiCiAgICAgICAgICBmaWxsPSJub25lIgogICAgICAgICAgc3Ryb2tlPSJ1cmwoI2dvbGQpIgogICAgICAgICAgc3Ryb2tlLXdpZHRoPSIyNiIKICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgICA8cGF0aCBkPSJNNDUwIDkyCiAgICAgICAgICAgICBDNTQwIDEzOSA2NTAgMTY5IDc3MCAxNzEKICAgICAgICAgICAgIEw3NzAgNDEzCiAgICAgICAgICAgICBDNzcwIDU2MyA2NTQgNjk3IDQ1MCA4MDIKICAgICAgICAgICAgIEMyNDYgNjk3IDEzMCA1NjMgMTMwIDQxMwogICAgICAgICAgICAgTDEzMCAxNzEKICAgICAgICAgICAgIEMyNTAgMTY5IDM2MCAxMzkgNDUwIDkyWiIKICAgICAgICAgIGZpbGw9InJnYmEoMCwwLDAsMC4wOCkiCiAgICAgICAgICBzdHJva2U9InJnYmEoMjQzLDIxMSwxMzQsMC4zNSkiCiAgICAgICAgICBzdHJva2Utd2lkdGg9IjUiCiAgICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPC9nPgoKICA8dGV4dCB4PSI0NTAiIHk9IjU0NSIKICAgICAgICB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWYiCiAgICAgICAgZm9udC1zaXplPSIyODIiCiAgICAgICAgZm9udC13ZWlnaHQ9IjUwMCIKICAgICAgICBsZXR0ZXItc3BhY2luZz0iLTE4IgogICAgICAgIGZpbGw9InVybCgjZ29sZFNvZnQpIj5UQkc8L3RleHQ+Cjwvc3ZnPg==" alt="The Buckler Group crest"><span class="wordmark">The Buckler Group</span></div>
@@ -3343,36 +3495,25 @@ Strategic Sessions Powered by EXODUS™
         <p>Select a jurisdiction to view its session date, investment themes, and development considerations.</p>
       </div>
 
-      <div class="map-platform">
-        <div class="map-visual" aria-label="Interactive Caribbean jurisdiction map">
-          <button class="map-pin guyana-pin active" data-market="guyana" aria-label="Guyana"></button>
-          <button class="map-pin barbados-pin" data-market="barbados" aria-label="Barbados"></button>
-          <button class="map-pin bahamas-pin" data-market="bahamas" aria-label="Bahamas"></button>
-          <button class="map-pin grenada-pin" data-market="grenada" aria-label="Grenada"></button>
-          <button class="map-pin antigua-pin" data-market="antigua" aria-label="Antigua and Barbuda"></button>
-          <button class="map-pin tt-pin" data-market="tt" aria-label="Trinidad and Tobago"></button>
-          <div class="map-label map-label-guyana">Guyana</div>
-          <div class="map-label map-label-barbados">Barbados</div>
-          <div class="map-label map-label-bahamas">Bahamas</div>
-          <div class="map-label map-label-grenada">Grenada</div>
-          <div class="map-label map-label-antigua">Antigua & Barbuda</div>
-          <div class="map-label map-label-tt">Trinidad & Tobago</div>
-        </div>
+   <section class="tbg-leaflet-section">
+  <div class="map-intro">
+    <p class="eyebrow">Jurisdiction Intelligence</p>
+    <h2>Caribbean Markets in Strategic Sequence</h2>
+    <p>
+      A production-grade regional map using precise geographic coordinates.
+    </p>
+  </div>
 
-        <div class="map-intelligence">
-          <div class="eyebrow">Jurisdiction Profile</div>
-          <h3 id="map-title">Guyana</h3>
-          <div class="map-meta" id="map-date">17 July 2026</div>
-          <p id="map-copy">Energy-led expansion, infrastructure development, and rising hospitality demand define the opening Strategic Session.</p>
-          <div class="map-themes" id="map-themes"><span>Energy</span><span>Infrastructure</span><span>Hospitality</span></div>
-          <div class="map-considerations">
-            <strong>Development Considerations</strong>
-            <p id="map-considerations">Market access, hotel demand, urban infrastructure, entitlement readiness, and institutional coordination.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="map-platform">
+    <div id="tbgMap"></div>
 
+    <aside class="jurisdiction-panel" id="jurisdictionPanel">
+      <p class="panel-kicker">Market Intelligence</p>
+      <h3>Caribbean Basin</h3>
+      <p>Select a jurisdiction marker to review strategic focus.</p>
+    </aside>
+  </div>
+</section>
 
     <section id="exodus" class="dark-section exodus-integration">
       <div class="section-head">

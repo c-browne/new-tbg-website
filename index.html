@@ -3718,7 +3718,221 @@ TABLET
 .tbg-jurisdiction-panel .map-brief-block li{
   margin-bottom:5px;
 }
-  </style>
+  
+/* =========================================================
+   TBG MAPBOX FIX — Interactive Jurisdiction Intelligence Map
+   Ensures the map has a real layout/height and panel styling.
+   ========================================================= */
+
+.tbg-mapbox-section{
+  background:#f7f3ea;
+  color:var(--ink);
+  padding:112px 5vw;
+  border-top:1px solid rgba(7,17,31,.10);
+  border-bottom:1px solid rgba(7,17,31,.10);
+}
+
+.tbg-mapbox-section .section-head{
+  max-width:980px;
+  margin-bottom:44px;
+}
+
+.tbg-map-platform{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);
+  gap:0;
+  align-items:stretch;
+  width:100%;
+  min-height:560px;
+  background:#07111f;
+  border:1px solid rgba(183,144,75,.35);
+  box-shadow:0 28px 80px rgba(7,17,31,.12);
+  overflow:hidden;
+}
+
+#tbgMap{
+  width:100%;
+  height:560px;
+  min-height:560px;
+  background:#07111f;
+}
+
+.tbg-jurisdiction-panel{
+  background:#ffffff;
+  color:#07111f;
+  padding:38px;
+  border-left:1px solid rgba(183,144,75,.35);
+  min-height:560px;
+  overflow:auto;
+}
+
+.tbg-jurisdiction-panel .panel-kicker{
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  margin:0 0 18px;
+}
+
+.tbg-jurisdiction-panel h3{
+  color:#07111f;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:clamp(38px,4vw,62px);
+  line-height:.92;
+  letter-spacing:-.045em;
+  margin:0 0 10px;
+}
+
+.tbg-marker{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#b7904b;
+  border:2px solid #ffffff;
+  box-shadow:0 0 0 8px rgba(183,144,75,.22);
+  cursor:pointer;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.tbg-marker:hover{
+  transform:scale(1.18);
+  box-shadow:0 0 0 10px rgba(183,144,75,.28);
+}
+
+.tbg-jurisdiction-panel .map-session-meta{
+  margin:18px 0 16px;
+  padding:18px 0;
+  border-top:1px solid rgba(7,17,31,.12);
+  border-bottom:1px solid rgba(7,17,31,.12);
+}
+
+.tbg-jurisdiction-panel .map-session-meta span{
+  display:block;
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta strong{
+  display:block;
+  color:#07111f;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-size:26px;
+  line-height:1.05;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+.tbg-jurisdiction-panel .map-session-meta em{
+  display:block;
+  color:#8a6a3f;
+  font-style:normal;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+
+.tbg-jurisdiction-panel .map-format{
+  display:inline-block;
+  margin-bottom:22px;
+  padding:8px 10px;
+  background:#07111f;
+  color:#ffffff;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+
+.tbg-jurisdiction-panel .map-brief-block{
+  margin-top:22px;
+}
+
+.tbg-jurisdiction-panel .map-brief-block h4{
+  margin:0 0 8px;
+  color:#8a6a3f;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+
+.tbg-jurisdiction-panel .map-brief-block p{
+  margin:0;
+  color:#475569;
+  font-size:14px;
+  line-height:1.62;
+}
+
+.tbg-jurisdiction-panel .map-brief-block ul{
+  margin:0;
+  padding-left:18px;
+  color:#475569;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.tbg-jurisdiction-panel .map-brief-block li{
+  margin-bottom:5px;
+}
+
+.tbg-jurisdiction-panel .market-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:28px;
+  min-width:235px;
+  min-height:54px;
+  padding:0 26px;
+  background:#b7904b;
+  color:#07111f;
+  text-decoration:none;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:12px;
+  font-weight:800;
+  border:1px solid #b7904b;
+  transition:all .25s ease;
+}
+
+.tbg-jurisdiction-panel .market-button:hover{
+  background:#d8ae5a;
+  border-color:#d8ae5a;
+  transform:translateY(-1px);
+}
+
+.mapboxgl-ctrl-logo,
+.mapboxgl-ctrl-attrib{
+  opacity:.55;
+}
+
+@media(max-width:900px){
+  .tbg-mapbox-section{
+    padding:86px 5vw;
+  }
+
+  .tbg-map-platform{
+    grid-template-columns:1fr;
+  }
+
+  #tbgMap{
+    height:520px;
+    min-height:520px;
+  }
+
+  .tbg-jurisdiction-panel{
+    min-height:auto;
+    border-left:none;
+    border-top:1px solid rgba(183,144,75,.35);
+  }
+}
+
+</style>
 </head>
 <body>
   <header class="topbar">
@@ -4323,6 +4537,7 @@ Strategic Sessions Powered by EXODUS™
 
 
 
+
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
 
 <script>
@@ -4330,206 +4545,10 @@ Strategic Sessions Powered by EXODUS™
   const mapEl = document.getElementById("tbgMap");
   const panel = document.getElementById("jurisdictionPanel");
 
-  if (!mapEl || !panel || typeof mapboxgl === "undefined") return;
-
-  mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w";
-
-  const map = new mapboxgl.Map({
-    container: "tbgMap",
-    style: "mapbox://styles/mapbox/satellite-streets-v12",
-    center: [-65.8, 16.0],
-    zoom: 4.25,
-    pitch: 0,
-    bearing: 0,
-    antialias: true
-  });
-
-  map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-left");
-  map.scrollZoom.disable();
-
-  const markets = [
-    {
-      name: "Guyana",
-      coords: [-58.1551, 6.8013],
-      session: "Session I",
-      date: "Friday, June 19, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Energy Wealth, Infrastructure & Frontier Urbanization",
-      focus: "Positioning Guyana as a rapidly emerging infrastructure and urbanization market within the Caribbean Basin.",
-      opportunities: [
-        "Georgetown mixed-use development",
-        "Business hotels and executive housing",
-        "Port and logistics infrastructure",
-        "Industrial real estate",
-        "Airport corridor expansion",
-        "Waterfront redevelopment"
-      ]
-    },
-    {
-      name: "Barbados",
-      coords: [-59.5432, 13.1939],
-      session: "Session II",
-      date: "Friday, July 17, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Luxury Tourism, Wealth Migration & Diaspora Capital",
-      focus: "Positioning Barbados as a premium governance and luxury migration market capable of attracting high-value global and diaspora capital.",
-      opportunities: [
-        "Branded residences",
-        "Luxury villas",
-        "Wellness resorts",
-        "Marina districts",
-        "Remote-work residential communities",
-        "Coastal mixed-use projects"
-      ]
-    },
-    {
-      name: "The Bahamas",
-      coords: [-77.3963, 25.0343],
-      session: "Session III",
-      date: "Friday, August 21, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Ultra-Luxury Hospitality & Global Capital Attraction",
-      focus: "Positioning The Bahamas as a global wealth and ultra-luxury infrastructure ecosystem.",
-      opportunities: [
-        "Ultra-luxury resorts",
-        "Marina infrastructure",
-        "Branded residences",
-        "Private island developments",
-        "Aviation-linked hospitality",
-        "Family office real estate platforms"
-      ]
-    },
-    {
-      name: "Grenada",
-      coords: [-61.6790, 12.1165],
-      session: "Session IV",
-      date: "Friday, September 18, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Climate-Resilient Hospitality & Boutique Development",
-      focus: "Positioning Grenada as a climate-resilient boutique hospitality market aligned with long-term sustainability and premium experiential tourism demand.",
-      opportunities: [
-        "Boutique eco-resorts",
-        "Marina and yachting infrastructure",
-        "Wellness hospitality",
-        "Agro-tourism estates",
-        "Sustainable mixed-use communities",
-        "Blue economy infrastructure"
-      ]
-    },
-    {
-      name: "Tobago",
-      coords: [-60.6670, 11.2500],
-      session: "Session V",
-      date: "Friday, October 16, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Eco-Tourism, Maritime Economies & Cultural Infrastructure",
-      focus: "Positioning Tobago as an undercapitalized but highly differentiated eco-tourism and maritime development market.",
-      opportunities: [
-        "Eco-resorts",
-        "Maritime and blue economy infrastructure",
-        "Waterfront redevelopment",
-        "Boutique hospitality redevelopment",
-        "Cultural districts",
-        "Sports and nature tourism assets"
-      ]
-    },
-    {
-      name: "Antigua & Barbuda",
-      coords: [-61.7964, 17.0608],
-      session: "Session VI",
-      date: "Friday, November 20, 2026",
-      time: "12:30 PM – 1:15 PM EST",
-      format: "Virtual Executive Session",
-      theme: "Citizenship-by-Investment & Resort Urbanism",
-      focus: "Positioning Antigua & Barbuda at the intersection of investment migration, hospitality infrastructure, and luxury development.",
-      opportunities: [
-        "Resort urbanism",
-        "Marina infrastructure",
-        "Luxury mixed-use districts",
-        "Branded residences",
-        "Waterfront development",
-        "Integrated tourism communities"
-      ]
-    }
-  ];
-
-  function renderPanel(market) {
-    const opportunityList = market.opportunities
-      .map(item => `<li>${item}</li>`)
-      .join("");
-
-    panel.innerHTML = `
-      <p class="panel-kicker">Jurisdiction Intelligence</p>
-
-      <h3>${market.name}</h3>
-
-      <div class="map-session-meta">
-        <span>${market.session}</span>
-        <strong>${market.date}</strong>
-        <em>${market.time}</em>
-      </div>
-
-      <div class="map-format">
-        ${market.format}
-      </div>
-
-      <div class="map-brief-block">
-        <h4>Theme</h4>
-        <p>${market.theme}</p>
-      </div>
-
-      <div class="map-brief-block">
-        <h4>Strategic Focus</h4>
-        <p>${market.focus}</p>
-      </div>
-
-      <div class="map-brief-block">
-        <h4>Priority Opportunity Areas</h4>
-        <ul>${opportunityList}</ul>
-      </div>
-
-      <a href="participation.html" class="market-button">
-        Reserve Participation
-      </a>
-    `;
+  if (!mapEl || !panel || typeof mapboxgl === "undefined") {
+    console.warn("TBG Map not initialized: missing #tbgMap, #jurisdictionPanel, or Mapbox GL JS.");
+    return;
   }
-
-  map.on("load", () => {
-    markets.forEach((market) => {
-      const marker = document.createElement("div");
-      marker.className = "tbg-marker";
-      marker.title = market.name;
-
-      new mapboxgl.Marker({ element: marker, anchor: "center" })
-        .setLngLat(market.coords)
-        .addTo(map);
-
-      marker.addEventListener("click", () => {
-        renderPanel(market);
-        map.flyTo({
-          center: market.coords,
-          zoom: Math.max(map.getZoom(), 5.2),
-          speed: .75,
-          curve: 1.35
-        });
-      });
-    });
-  });
-})();
-</script>
-<script src="https://api.mapbox.com/mapbox-gl-js/v3.5.1/mapbox-gl.js"></script>
-
-<script>
-(function () {
-  const mapEl = document.getElementById("tbgMap");
-  const panel = document.getElementById("jurisdictionPanel");
-
-  if (!mapEl || !panel || typeof mapboxgl === "undefined") return;
 
   mapboxgl.accessToken = "pk.eyJ1IjoiY2hyaXN0b3BoZXJicm93bmUiLCJhIjoiY21xdGtpaXAwMGx0bjJzcHRnb25wMGF0bSJ9.PIG8N6_yzJQLZGW-5jiz1w";
 
@@ -4639,6 +4658,10 @@ Strategic Sessions Powered by EXODUS™
   ];
 
   function renderPanel(item) {
+    const opportunities = item.opportunities.map(function (opportunity) {
+      return "<li>" + opportunity + "</li>";
+    }).join("");
+
     panel.innerHTML = `
       <p class="panel-kicker">Jurisdiction Intelligence</p>
       <h3>${item.name}</h3>
@@ -4663,7 +4686,7 @@ Strategic Sessions Powered by EXODUS™
 
       <div class="map-brief-block">
         <h4>Priority Opportunity Areas</h4>
-        <ul>${item.opportunities.map(o => `<li>${o}</li>`).join("")}</ul>
+        <ul>${opportunities}</ul>
       </div>
 
       <a href="/charter-membership.html" class="market-button">
@@ -4675,10 +4698,11 @@ Strategic Sessions Powered by EXODUS™
   const map = new mapboxgl.Map({
     container: "tbgMap",
     style: "mapbox://styles/mapbox/satellite-streets-v12",
-    center: [-65.8, 16.0],
-    zoom: 4.25,
+    center: [-66.0, 16.2],
+    zoom: 4.1,
     pitch: 0,
-    bearing: 0
+    bearing: 0,
+    attributionControl: true
   });
 
   map.addControl(new mapboxgl.NavigationControl({ showCompass: false }), "top-left");
@@ -4686,11 +4710,13 @@ Strategic Sessions Powered by EXODUS™
 
   map.on("load", function () {
     sessions.forEach(function (item) {
-      const marker = document.createElement("div");
+      const marker = document.createElement("button");
       marker.className = "tbg-marker";
+      marker.type = "button";
       marker.title = item.name;
+      marker.setAttribute("aria-label", "View " + item.name + " jurisdiction intelligence");
 
-      new mapboxgl.Marker({ element: marker })
+      new mapboxgl.Marker({ element: marker, anchor: "center" })
         .setLngLat(item.coords)
         .addTo(map);
 
@@ -4706,8 +4732,16 @@ Strategic Sessions Powered by EXODUS™
     });
 
     renderPanel(sessions[0]);
+    setTimeout(function () {
+      map.resize();
+    }, 250);
+  });
+
+  window.addEventListener("resize", function () {
+    map.resize();
   });
 })();
 </script>
+
 </body>
 </html>

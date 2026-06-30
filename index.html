@@ -3457,6 +3457,59 @@ background:#ddb560;
     min-height:auto;
   }
 }
+    .cr-publication-card{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.cr-publication-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,17,31,.72) 0%,
+      rgba(7,17,31,.86) 48%,
+      rgba(7,17,31,.96) 100%
+    );
+  z-index:-1;
+}
+
+.cr-publication-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(183,144,75,.34);
+  pointer-events:none;
+  z-index:2;
+}
+
+.cr-publication-card:hover::before{
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,17,31,.62) 0%,
+      rgba(7,17,31,.80) 48%,
+      rgba(7,17,31,.94) 100%
+    );
+}
+
+.cr-card-foundation{
+  background-image:url("assets-images/caribbean-renaissance-insights.webp");
+}
+
+.cr-card-hospitality{
+  background-image:url("assets-images/hospitality-infrastructure.webp");
+}
+
+.cr-card-readiness{
+  background-image:url("assets-images/development-readiness.webp");
+}
   </style>
 </head>
 <body>
@@ -3816,7 +3869,7 @@ Strategic Sessions Powered by EXODUS™
 
   <div class="cr-publications-grid">
 
-    <a href="/caribbean-renaissance-insights.html" class="cr-publication-card">
+    <a href="/caribbean-renaissance-insights.html" class="cr-publication-card cr-card-foundation">
       <div>
         <div class="cr-publication-label">Founding Paper</div>
 
@@ -3839,7 +3892,7 @@ Strategic Sessions Powered by EXODUS™
       </div>
     </a>
 
-    <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card">
+   <a href="/hospitality-economic-infrastructure.html" class="cr-publication-card cr-card-hospitality">
       <div>
         <div class="cr-publication-label">Research Paper No. 002</div>
 
@@ -3862,7 +3915,7 @@ Strategic Sessions Powered by EXODUS™
       </div>
     </a>
 
-    <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card">
+   <a href="/development-entitlements-and-development-readiness.html" class="cr-publication-card cr-card-readiness">
       <div>
         <div class="cr-publication-label">Research Paper No. 003</div>
 

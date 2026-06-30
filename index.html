@@ -1228,26 +1228,14 @@
       align-items: stretch;
     }
 
-   .office-founder-image{
-    min-height:600px;
+    .office-founder-image {
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(7,17,31,.12);
+      position: relative;
+    }
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(7,17,31,.06),
-            rgba(7,17,31,.20)
-        ),
-        url("
-assets-images/assets/images/founder-perspective.webp");
-
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position:center 5%;
-
-    border:none;
-    box-shadow:none;
-    position:relative;
-}
     .office-founder-image:after {
       content: "";
       position: absolute;
@@ -4209,6 +4197,383 @@ assets-images/assets/images/founder-perspective.webp");
   .cr-insights-section h2,
   .cr-insights-section .cr-insights-head h2{
     font-size:clamp(38px,12vw,58px) !important;
+  }
+}
+
+
+/* =========================================================
+   FINAL HOMEPAGE CLEANUP — TBG
+   Founder Image + Insights Typography + Map Height
+   ========================================================= */
+
+/* Founder Perspective image insertion */
+.office-founder-image{
+  display:block !important;
+  min-height:600px !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7,17,31,.06),
+      rgba(7,17,31,.20)
+    ),
+    url("assets-images/founder.webp") !important;
+  background-size:cover !important;
+  background-repeat:no-repeat !important;
+  background-position:center 5% !important;
+  border:none !important;
+  box-shadow:none !important;
+  position:relative !important;
+}
+
+.office-founder-image:after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Founder Perspective format */
+.office-founder-inner{
+  max-width:1420px !important;
+  margin:0 auto !important;
+  display:grid !important;
+  grid-template-columns:.82fr 1.18fr !important;
+  gap:54px !important;
+  align-items:stretch !important;
+}
+
+.office-founder-copy{
+  background:var(--white) !important;
+  padding:58px !important;
+  border:none !important;
+  box-shadow:none !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:center !important;
+}
+
+.office-founder-copy .founder-subtitle{
+  display:block !important;
+  color:var(--gold) !important;
+  text-transform:uppercase !important;
+  letter-spacing:.16em !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  margin-bottom:14px !important;
+}
+
+.office-founder-copy h2{
+  color:var(--navy) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(40px,4.8vw,68px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.04em !important;
+  margin:0 0 18px !important;
+}
+
+.office-founder-copy p{
+  display:block !important;
+  color:var(--slate) !important;
+  font-size:18px !important;
+  line-height:1.66 !important;
+  max-width:850px !important;
+  margin:0 0 20px !important;
+}
+
+.office-founder-copy p:nth-of-type(n+2){
+  display:block !important;
+}
+
+.office-founder-copy blockquote{
+  display:block !important;
+  margin:34px 0 !important;
+  padding:22px 0 22px 26px !important;
+  border-left:4px solid var(--gold) !important;
+  color:var(--navy) !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(28px,3vw,42px) !important;
+  line-height:1.1 !important;
+  letter-spacing:-.025em !important;
+}
+
+.office-founder .founder-focus-grid{
+  display:grid !important;
+  grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  gap:42px !important;
+  margin-top:38px !important;
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+.office-founder .founder-focus{
+  min-height:120px !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:none !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+.office-founder .founder-focus strong{
+  display:block !important;
+  margin:0 0 10px !important;
+  color:var(--navy) !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+  text-transform:uppercase !important;
+  letter-spacing:.12em !important;
+  line-height:1.35 !important;
+}
+
+.office-founder .founder-focus span{
+  display:block !important;
+  color:#667085 !important;
+  font-size:14px !important;
+  line-height:1.6 !important;
+}
+
+.office-founder .founder-focus::before,
+.office-founder .founder-focus::after,
+.office-founder .founder-focus-grid::before,
+.office-founder .founder-focus-grid::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Caribbean Renaissance™ Insights — institutional color and typography */
+#insights,
+.cr-insights-section{
+  background:#f7f3ea !important;
+  color:#07111f !important;
+  padding:112px 5vw !important;
+  border-top:1px solid rgba(7,17,31,.08) !important;
+  border-bottom:1px solid rgba(7,17,31,.08) !important;
+}
+
+#insights .cr-insights-head,
+.cr-insights-section .cr-insights-head{
+  max-width:980px !important;
+  margin:0 0 64px !important;
+}
+
+#insights .cr-insights-label,
+.cr-insights-section .cr-insights-label{
+  color:#b7904b !important;
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:11px !important;
+  font-weight:800 !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  margin:0 0 18px !important;
+}
+
+#insights .cr-insights-head h2,
+.cr-insights-section .cr-insights-head h2{
+  color:#07111f !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(44px,5.5vw,82px) !important;
+  font-weight:600 !important;
+  line-height:.92 !important;
+  letter-spacing:-.045em !important;
+  margin:0 0 22px !important;
+}
+
+#insights .cr-insights-head p,
+.cr-insights-section .cr-insights-head p{
+  color:#8a6a3f !important;
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:17px !important;
+  font-weight:500 !important;
+  line-height:1.72 !important;
+  max-width:780px !important;
+  margin:0 !important;
+}
+
+#insights .cr-publications-grid,
+.cr-insights-section .cr-publications-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:30px !important;
+}
+
+#insights .cr-publication-card,
+.cr-insights-section .cr-publication-card{
+  display:flex !important;
+  flex-direction:column !important;
+  min-height:640px !important;
+  overflow:hidden !important;
+  background:#ffffff !important;
+  color:#07111f !important;
+  border:1px solid rgba(7,17,31,.10) !important;
+  box-shadow:0 22px 70px rgba(7,17,31,.07) !important;
+  text-decoration:none !important;
+}
+
+#insights .cr-publication-image,
+.cr-insights-section .cr-publication-image{
+  height:420px !important;
+  padding:22px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#07111f !important;
+  border-bottom:1px solid rgba(7,17,31,.10) !important;
+}
+
+#insights .cr-publication-image img,
+.cr-insights-section .cr-publication-image img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  display:block !important;
+}
+
+#insights .cr-publication-content,
+.cr-insights-section .cr-publication-content{
+  padding:30px !important;
+  flex:1 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:space-between !important;
+  background:#ffffff !important;
+  color:#07111f !important;
+}
+
+#insights .cr-publication-label,
+.cr-insights-section .cr-publication-label{
+  color:#b7904b !important;
+  font-family:"Inter",Arial,sans-serif !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.18em !important;
+  text-transform:uppercase !important;
+  margin:0 0 16px !important;
+}
+
+#insights .cr-publication-card h3,
+.cr-insights-section .cr-publication-card h3{
+  color:#07111f !important;
+  font-family:"Cormorant Garamond",Georgia,serif !important;
+  font-size:clamp(30px,3vw,42px) !important;
+  font-weight:600 !important;
+  line-height:.98 !important;
+  letter-spacing:-.035em !important;
+  margin:0 0 14px !important;
+}
+
+#insights .cr-subtitle,
+.cr-insights-section .cr-subtitle{
+  color:#07111f !important;
+  font-size:15.5px !important;
+  font-weight:700 !important;
+  line-height:1.45 !important;
+  margin:0 0 14px !important;
+}
+
+#insights .cr-publication-content p:not(.cr-subtitle),
+.cr-insights-section .cr-publication-content p:not(.cr-subtitle){
+  color:#667085 !important;
+  font-size:14px !important;
+  line-height:1.68 !important;
+  margin:0 !important;
+}
+
+#insights .cr-publication-footer,
+.cr-insights-section .cr-publication-footer{
+  margin-top:26px !important;
+  padding-top:18px !important;
+  border-top:1px solid rgba(7,17,31,.10) !important;
+  color:#b7904b !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.14em !important;
+  text-transform:uppercase !important;
+}
+
+/* Interactive map: remove dark block beneath map */
+#sessions .tbg-map-layout{
+  display:grid !important;
+  grid-template-columns:minmax(0,2.65fr) minmax(300px,.75fr) !important;
+  gap:0 !important;
+  align-items:stretch !important;
+  height:420px !important;
+  min-height:0 !important;
+  max-height:420px !important;
+  overflow:hidden !important;
+  background:transparent !important;
+}
+
+#sessions .tbg-map-frame,
+#sessions #tbgMap,
+#sessions #tbgMap .mapboxgl-canvas-container,
+#sessions #tbgMap .mapboxgl-canvas,
+#sessions #tbgMap canvas{
+  width:100% !important;
+  height:420px !important;
+  min-height:420px !important;
+  max-height:420px !important;
+  display:block !important;
+  overflow:hidden !important;
+}
+
+#sessions .tbg-jurisdiction-panel,
+#sessions #jurisdictionPanel{
+  height:420px !important;
+  min-height:420px !important;
+  max-height:420px !important;
+  overflow:auto !important;
+  padding:34px !important;
+}
+
+@media(max-width:1100px){
+  .office-founder-inner{
+    grid-template-columns:1fr !important;
+  }
+
+  .office-founder-image{
+    min-height:420px !important;
+  }
+
+  .office-founder .founder-focus-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  #sessions .tbg-map-layout{
+    grid-template-columns:1fr !important;
+    height:auto !important;
+    max-height:none !important;
+  }
+
+  #sessions .tbg-jurisdiction-panel,
+  #sessions #jurisdictionPanel{
+    height:auto !important;
+    min-height:auto !important;
+    max-height:none !important;
+  }
+
+  #insights .cr-publications-grid,
+  .cr-insights-section .cr-publications-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+@media(max-width:700px){
+  .office-founder-copy{
+    padding:36px !important;
+  }
+
+  .office-founder .founder-focus-grid{
+    grid-template-columns:1fr !important;
+  }
+
+  #insights,
+  .cr-insights-section{
+    padding:82px 5vw !important;
+  }
+
+  #insights .cr-publication-image,
+  .cr-insights-section .cr-publication-image{
+    height:340px !important;
   }
 }
 

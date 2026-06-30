@@ -1226,31 +1226,23 @@
       grid-template-columns: 0.82fr 1.18fr;
       gap: 54px;
       align-items: stretch;
-  .office-founder-image{
-    width:100%;
-    min-height:600px;
+    }
 
-    background-image:
-        linear-gradient(
-            rgba(7,17,31,.08),
-            rgba(7,17,31,.20)
-        ),
-        url("assets-images/assets/images/founder-perspective.webp");
+    .office-founder-image {
+      min-height: 600px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(7,17,31,.12);
+      position: relative;
+    }
 
-    background-position:center center;
-    background-size:cover;
-    background-repeat:no-repeat;
-
-    border:none;
-    box-shadow:none;
-
-    display:block;
-    position:relative;
-}
-.office-founder-image:after{
-  display:none !important;
-  content:none !important;
-}
+    .office-founder-image:after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(183,144,75,.28);
+      pointer-events: none;
+    }
 
     .office-founder-copy {
       background: var(--white);
@@ -4210,21 +4202,22 @@
 
 
 /* =========================================================
-   FINAL HOMEPAGE CLEANUP — TBG
-   Founder Image + Insights Typography + Map Height
+   FINAL HOMEPAGE FIXES — THE BUCKLER GROUP
+   Founder Photo, Insights Formatting, Map Height
    ========================================================= */
 
-/* Founder Perspective image insertion */
+/* Founder Perspective image — corrected path from GitHub file tree */
 .office-founder-image{
   display:block !important;
+  width:100% !important;
   min-height:600px !important;
-  background:
+  background-image:
     linear-gradient(
       180deg,
       rgba(7,17,31,.06),
       rgba(7,17,31,.20)
     ),
-    url("assets-images/founder.webp") !important;
+    url("/assets-images/assets/images/branding/founder-perspective.webp") !important;
   background-size:cover !important;
   background-repeat:no-repeat !important;
   background-position:center 5% !important;
@@ -4238,7 +4231,14 @@
   content:none !important;
 }
 
-/* Founder Perspective format */
+/* Founder Perspective restored format */
+.office-founder{
+  background:var(--bone) !important;
+  padding:96px 5vw !important;
+  border-top:1px solid rgba(7,17,31,.08) !important;
+  border-bottom:1px solid rgba(7,17,31,.08) !important;
+}
+
 .office-founder-inner{
   max-width:1420px !important;
   margin:0 auto !important;
@@ -4310,9 +4310,13 @@
   border:none !important;
   background:transparent !important;
   box-shadow:none !important;
+  align-items:start !important;
 }
 
 .office-founder .founder-focus{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
   min-height:120px !important;
   padding:0 !important;
   margin:0 !important;
@@ -4345,9 +4349,19 @@
 .office-founder .founder-focus-grid::after{
   display:none !important;
   content:none !important;
+  border:none !important;
+  background:none !important;
+  box-shadow:none !important;
 }
 
-/* Caribbean Renaissance™ Insights — institutional color and typography */
+.office-founder-signature{
+  display:block !important;
+  margin-top:34px !important;
+  padding-top:22px !important;
+  border-top:1px solid rgba(7,17,31,.10) !important;
+}
+
+/* Caribbean Renaissance™ Insights — institutional formatting */
 #insights,
 .cr-insights-section{
   background:#f7f3ea !important;
@@ -4401,6 +4415,7 @@
   display:grid !important;
   grid-template-columns:repeat(3,minmax(0,1fr)) !important;
   gap:30px !important;
+  align-items:stretch !important;
 }
 
 #insights .cr-publication-card,
@@ -4450,7 +4465,6 @@
 #insights .cr-publication-label,
 .cr-insights-section .cr-publication-label{
   color:#b7904b !important;
-  font-family:"Inter",Arial,sans-serif !important;
   font-size:10px !important;
   font-weight:800 !important;
   letter-spacing:.18em !important;
@@ -4498,7 +4512,7 @@
   text-transform:uppercase !important;
 }
 
-/* Interactive map: remove dark block beneath map */
+/* Interactive map: remove dark block under visible map */
 #sessions .tbg-map-layout{
   display:grid !important;
   grid-template-columns:minmax(0,2.65fr) minmax(300px,.75fr) !important;
@@ -4983,6 +4997,7 @@ Strategic Sessions Powered by EXODUS™
         “Capital follows order. Development follows coordination. Opportunity follows institutions.”
       </blockquote>
 
+      
       <div class="founder-focus-grid">
         <div class="founder-focus">
           <strong>Strategic Advisory</strong>
@@ -5004,8 +5019,7 @@ Strategic Sessions Powered by EXODUS™
           <span>Investor readiness and partnerships.</span>
         </div>
       </div>
-
-      <div class="office-founder-signature">
+<div class="office-founder-signature">
         <strong>Christopher A. Browne</strong>
         <span>Founder &amp; Chief Executive Officer · The Buckler Group</span>
       </div>

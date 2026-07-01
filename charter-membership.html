@@ -113,11 +113,19 @@
     .pricing-band .section-head p{color:rgba(255,255,255,.76);max-width:800px;}
 
     .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:22px;}
+    .pricing-grid.leadership{grid-template-columns:repeat(4,1fr);}
     .pricing-grid.two{grid-template-columns:repeat(2,1fr);}
 
     .tier-card{background:rgba(255,255,255,.045);border:1px solid rgba(183,144,75,.38);padding:30px;min-height:390px;display:flex;flex-direction:column;}
     .tier-card.featured{background:rgba(183,144,75,.10);border-color:var(--gold);box-shadow:0 0 0 1px rgba(183,144,75,.16) inset;}
     .tier-card.invitation{background:linear-gradient(135deg,rgba(183,144,75,.18),rgba(255,255,255,.045));}
+    .tier-card.explorer{background:#fff;color:var(--navy);border-color:rgba(255,255,255,.92);box-shadow:0 24px 70px rgba(0,0,0,.14);min-height:342px;padding:25px;align-self:center;}
+    .tier-card.explorer h3{color:var(--navy);font-size:34px;}
+    .tier-card.explorer .tier-price{color:var(--gold-dark);font-size:41px;}
+    .tier-card.explorer .tier-price span{color:#667085;}
+    .tier-card.explorer p,.tier-card.explorer li{color:#475467;}
+    .tier-card.explorer p strong{color:var(--navy);}
+    .tier-card.explorer .tier-note{color:var(--gold-dark);border-top-color:rgba(7,17,31,.12);}
     .tier-label{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:800;margin-bottom:18px;}
     .tier-card h3{color:#fff;font-size:38px;margin-bottom:12px;letter-spacing:-.025em;}
     .tier-price{display:block;color:var(--gold-light);font-family:"Cormorant Garamond", Georgia, serif;font-size:48px;font-weight:600;line-height:1;margin-bottom:18px;letter-spacing:-.035em;}
@@ -128,9 +136,9 @@
     .tier-card ul{padding-left:18px;margin:18px 0 0;}
     .tier-note{margin-top:auto;padding-top:22px;color:rgba(255,255,255,.58);font-size:12px;text-transform:uppercase;letter-spacing:.11em;font-weight:800;}
 
-    .scarcity-panel{margin-top:26px;border:1px solid rgba(183,144,75,.38);background:rgba(255,255,255,.045);padding:26px;display:grid;grid-template-columns:.35fr 1.65fr;gap:26px;align-items:center;}
-    .scarcity-panel strong{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px;}
-    .scarcity-panel p{margin:0;color:rgba(255,255,255,.74);line-height:1.7;}
+    .cohort-panel{margin:0 0 26px;border:1px solid rgba(183,144,75,.42);background:linear-gradient(135deg,rgba(183,144,75,.13),rgba(255,255,255,.035));padding:24px 26px;display:grid;grid-template-columns:.48fr 1.52fr;gap:26px;align-items:center;}
+    .cohort-panel strong{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:12px;}
+    .cohort-panel p{margin:0;color:rgba(255,255,255,.78);line-height:1.7;}
 
     .application-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:46px;align-items:start;}
     .review-card{background:#fff;border-left:4px solid var(--gold);padding:34px;box-shadow:var(--shadow);}
@@ -177,9 +185,9 @@
     @media(max-width:1100px){
       .hero-grid,.application-layout,.anchor-grid{grid-template-columns:1fr;}
       .process-grid,.benefit-grid{grid-template-columns:repeat(2,1fr);}
-      .pricing-grid,.pricing-grid.two{grid-template-columns:1fr;}
+      .pricing-grid,.pricing-grid.two,.pricing-grid.leadership{grid-template-columns:1fr;}
       .tier-card{min-height:auto;}
-      .scarcity-panel{grid-template-columns:1fr;}
+      .cohort-panel{grid-template-columns:1fr;}
     }
 
     @media(max-width:760px){
@@ -257,7 +265,7 @@
           <div class="process-step"><span>02</span><strong>Executive Review</strong><p>The Buckler Group evaluates alignment with EXODUS™ and Caribbean Renaissance™ objectives.</p></div>
           <div class="process-step"><span>03</span><strong>Qualification Call</strong><p>Qualified candidates are invited to discuss fit, intended use, and membership pathway.</p></div>
           <div class="process-step"><span>04</span><strong>Membership Invitation</strong><p>Approved candidates receive participation terms, payment instructions, and access guidelines.</p></div>
-          <div class="process-step"><span>05</span><strong>Private Access</strong><p>Members receive Strategic Sessions, intelligence, and platform access based on tier.</p></div>
+          <div class="process-step"><span>05</span><strong>Private Access</strong><p>Approved participants receive Strategic Sessions, intelligence, and platform access based on pathway.</p></div>
         </div>
       </div>
     </section>
@@ -281,11 +289,25 @@
       <div class="section-inner">
         <div class="section-head">
           <div class="eyebrow">Charter Participation Pathways</div>
-          <h2>Choose your pathway into the Caribbean Renaissance™ ecosystem.</h2>
-          <p>Each pathway is designed for participants seeking to help shape Caribbean investment, institutional cooperation, and long-term regional opportunity. This is an application-based platform, not an open subscription product.</p>
+          <h2>Participation Pathways.</h2>
+          <p>Begin as an Explorer or apply directly for a leadership or institutional participation pathway. Each pathway is designed for serious participants seeking to help shape Caribbean investment, institutional cooperation, and long-term regional opportunity.</p>
         </div>
 
-        <div class="pricing-grid">
+        <div class="cohort-panel">
+          <strong>Limited Founding Charter Members — 2026 Cohort</strong>
+          <p>Applications are reviewed on a selective basis according to institutional fit, contribution potential, jurisdiction relevance, and alignment with the Caribbean Renaissance™ framework.</p>
+        </div>
+
+        <div class="pricing-grid leadership">
+          <div class="tier-card explorer">
+            <div class="tier-label">Entry Pathway</div>
+            <h3>Explorer</h3>
+            <div class="tier-price">Complimentary<span>application required</span></div>
+            <p><strong>Best suited for:</strong> Emerging professionals, entrepreneurs, students, researchers, diaspora leaders, and individuals exploring opportunities within the Caribbean Renaissance™ ecosystem.</p>
+            <ul><li>Public Strategic Sessions</li><li>Caribbean Renaissance™ Founding Papers</li><li>Quarterly executive newsletter</li><li>Eligibility to apply for future pathways</li></ul>
+            <div class="tier-note">Begin participation</div>
+          </div>
+
           <div class="tier-card">
             <div class="tier-label">Individual Pathway</div>
             <h3>Founding Investor Circle</h3>
@@ -332,10 +354,6 @@
           </div>
         </div>
 
-        <div class="scarcity-panel">
-          <strong>Scarcity Signal</strong>
-          <p>Founding Charter Memberships are reviewed on a selective basis. Applications are evaluated according to institutional fit, contribution potential, jurisdiction relevance, and alignment with the Caribbean Renaissance™ framework.</p>
-        </div>
       </div>
     </section>
 
@@ -390,7 +408,8 @@
 
             <div class="field full pathway-select-heading"><label>Participation Pathway</label><p>Select the pathway that best reflects your role or institution.</p></div>
             <div class="tier-options">
-              <label class="tier-choice"><input type="radio" name="membership-tier" value="Founding Investor Circle" required><span><strong>Founding Investor Circle</strong><em>$4,950 annually</em><small>Individual pathway</small></span></label>
+              <label class="tier-choice"><input type="radio" name="membership-tier" value="Explorer" required><span><strong>Explorer</strong><em>Complimentary</em><small>Application required</small></span></label>
+              <label class="tier-choice"><input type="radio" name="membership-tier" value="Founding Investor Circle"><span><strong>Founding Investor Circle</strong><em>$4,950 annually</em><small>Individual pathway</small></span></label>
               <label class="tier-choice"><input type="radio" name="membership-tier" value="Chairman's Council"><span><strong>Chairman’s Council</strong><em>$18,500 annually</em><small>Principal access</small></span></label>
               <label class="tier-choice"><input type="radio" name="membership-tier" value="Founder's Legacy"><span><strong>Founder’s Legacy</strong><em>By Invitation</em><small>Founding designation</small></span></label>
               <label class="tier-choice"><input type="radio" name="membership-tier" value="Government / Academic Partner"><span><strong>Government / Academic</strong><em>Custom</em><small>Institutional pathway</small></span></label>
